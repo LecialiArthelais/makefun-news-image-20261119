@@ -1,7 +1,10 @@
-// The World in One Day — Thursday 19 November 2026.
+// The World in One Day — Thursday 19 November 2026 (v2 rebuild).
 // A make.fun news-image entry (program/v1, Node 22, standard library only).
-// The entry is a single finished front-page image, entry.png beside this file.
-// The program copies it, byte for byte, to the output path the grader reads.
+// The entry is a single finished front-page image, entry.png beside this
+// file — 1024x1024 PNG, 172,258 bytes (v2, 39 verified stories).
+// The program copies it, byte for byte, to the output path the grader
+// reads. The page itself is drawn by build_frontpage.py from stories.json
+// (PIL, flat colours, one accent red) — see DESIGN.md.
 //
 // Deterministic by construction: no network, no clock, no randomness, no
 // image processing at all — the same input file always yields the same
