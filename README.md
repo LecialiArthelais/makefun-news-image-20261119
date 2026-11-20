@@ -5,59 +5,63 @@
 [![reward](https://make.fun/badge/news-image-20261119/LecialiArthelais/makefun-news-image-20261119/reward.svg)](https://make.fun/bounty/news-image-20261119?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261119)
 
 One image summing up the world's news of Thursday 19 November 2026, built
-for the make.fun news-image-20261119 bounty: a newspaper front page with the
-day named in a red date band and 39 verified stories from that day.
+for the make.fun news-image-20261119 bounty: a newspaper front page on
+cream paper, 36 verified stories, 13 original illustrations drawn in code,
+a dotted world map with numbered pins, and a DATE CHECK box that names the
+big stories deliberately left out because they happened on another day.
 
-This is the v2 rebuild of the entry first submitted 19 Nov 16:42 WIB (judge
-97.21%, rank 2,791/6,850). The rebuild answers the two gaps the leaderboard
-showed: the old file was 959,336 bytes — above the top-50 maximum — and it
-carried only 11 stories against a top-50 median of 40. This version has 39
-verified stories and a 172,258-byte file.
+This is the v3 rebuild. The v2 entry scored 98.01% (rank 933/11,653) but
+hit the ceiling of a text-only template: it carried two 18 November stories
+as 19 November news (the EU's €45bn loan to Kyiv, the Van Gogh $190.4m
+sale), the wrong Anthropic figure ($79.4bn instead of $81.3bn), five
+consensus stories missing entirely, and zero illustrations, zero map, zero
+DATE CHECK. v3 fixes all of that by following the winner template shared by
+all 15 top-5 images across the news-18/19/20 bounties.
 
-## The day, in 39 stories
+## The day, in 36 stories
 
-- **Hero — Shenzhen:** Trump, Xi and Putin hold their first three-way summit
-  at APEC; Ukraine and nuclear arms top the agenda.
-- **Top stories:** the International Court of Justice rules on the Rohingya
-  genocide case; Ukraine's allies meet in Berlin; Kyiv hits the Crimean
-  Bridge for the third time in a week; COP31 ministers race to unblock the
-  climate deal; Anthropic raises a record $79.4bn in its stock market debut;
-  Trump unveils $17bn of South-East Asia deals; GTA VI launches; a
-  cyberattack hits the European Commission.
-- **Around the world:** Indonesia passes its asset forfeiture law; Cyclone
-  Akvan threatens India's east coast; Malaysia ends visa-free entry for
-  Indians; India and Japan speed up their defence pact; the ancestral home
-  of Muhammad Yunus is torched in Bangladesh; Denmark ratifies the Greenland
-  pact 109-0; UK inflation hits a 12-month high; Italy passes its
-  antisemitism law; UniCredit seals the €41bn Commerzbank pact; French women
-  "work free" from 10:51; Walmart beats forecasts; the Dow drops 561;
-  Fed minutes point to more rate rises; Google launches Gemini 4 Neon;
-  Nvidia halts H200 shipments to China; Israel ends its Gaza tank raid;
-  Egypt seals a $2.3bn IMF deal; Ruto proposes tax-free low pay; Senegal's
-  ruling party expels its own president; Nigeria gets US intelligence help.
-- **Also today:** the IAEA on North Korea's uranium enrichment; a Russian
-  military plane crash in Siberia (19 killed); a Van Gogh selling for
-  $190.4M (an artist record); the EU–Indonesia trade pact; Estonia shutting
-  its Russia border crossings from 1 December; Takaichi and Xi shaking hands
-  at APEC; Modi urging industry to put "India First"; South Korea urging
-  talks with the North; a GAO report on chatbots drawing up attack plans;
-  the Webb telescope eyeing a star that swallowed its companion.
+- **Heroes:** (1) Trump, Xi and Putin meet in Shenzhen — the first
+  three-way summit; (2) GTA VI launches — 24.5m copies on day one;
+  (3) Anthropic's record $81.3bn IPO — 980m shares at $83, the biggest
+  listing ever, topping SpaceX's $75bn.
+- **Feature cards (4–13):** the World Court finds Myanmar committed
+  genocide, 9–6; the COP31 draft drops all fossil-fuel language and admits
+  1.5°C will be missed; Cyclone Akvan bears down on India (200,000
+  evacuated); Korea goes quiet for the Suneung (551,864 sitting); Florida
+  drowns in 15 inches of rain; Colombia strikes over the tax bill; a
+  missile threat over Riyadh ends in all-clear; Australia's jobless rate
+  hits 4.9%, a five-year high; Putin invites Europe to Moscow, Merz says
+  talks yes, Moscow no; the IEA calls the Mideast crisis the worst energy
+  threat in history.
+- **Also on Thursday (14–36):** the Senate backs Trump on Iran war powers
+  51–48; the White House cyber chief is fired after the outages; California
+  subpoenas Nvidia; Indonesia's asset forfeiture law; the Greenland pact
+  ratified 109–0; APEC's Shenzhen Outlook; Ukraine left off the Shenzhen
+  agenda; the Greens rally behind Mélenchon; Jepchirchir banned 3 years
+  for EPO; 589m children now live in war zones; and more.
+- **DATE CHECK:** the EU loan, the Van Gogh sale, the Libya seizure,
+  Voyager 1, the CMA Awards and the Pew study are all 18 November news and
+  are excluded on purpose; Akvan's landfall and the COP31 final deal had
+  not happened yet.
 
-Every story was verified against reports of the day (two sources where
-possible); the full list with sources is in `stories.json`.
+Every story carries its event date and source in `stories.json`. The iron
+rule of this rebuild: a story's date is when the event happened, never the
+date of the article reporting it.
 
 ## How it is built
 
 `build_frontpage.py` (Python 3, Pillow) draws the whole page from
-`stories.json` — flat colours, one accent red, a hand-drawn Shenzhen
-skyline in place of a photograph, so the PNG stays small. The design
-follows the 21st.dev language: a neutral base with one accent, tight
-display headings, small-caps eyebrow labels, soft 1px rules. See
-`DESIGN.md` for the design philosophy.
+`stories.json` — cream paper, a navy band, one accent red, and 13 flat
+vector illustrations drawn in code (summit table, Vice City sunset, IPO
+candlesticks, courthouse and scales, globe and thermometer, cyclone
+spiral, exam desk, flooded house, strike banner, Riyadh towers, jobless
+bars, crossed-out Kremlin, oil drop) plus a dotted world map. No
+photographs, no AI images. See `DESIGN.md` for the design philosophy.
 
 `main.ts` (Node 22, standard library only) copies the finished front page,
-`entry.png` (1024×1024 PNG, 172,258 bytes), to `/output/entry.png`. No
-network, no clock, no randomness — both grading runs produce identical bytes.
+`entry.png` (1024×1024 PNG, 217,091 bytes), to `/output/entry.png`. No
+network, no clock, no randomness — both grading runs produce identical
+bytes (sha256 57f6b82374ef4fe6147bec1666c7874a557582179be82952d21b51783ff350a2).
 
 Run it locally:
 
